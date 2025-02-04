@@ -9,6 +9,7 @@ const { connectDB, sql } = require("./config/db");
 const productosRoutes = require("./routes/productosRoutes");
 const loginRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/usersRoutes");
+const emailRoutes = require("./routes/emailRoutes"); // Agrega las rutas
 
 const app = express();
 app.use(express.json());
@@ -24,6 +25,7 @@ connectDB();
 app.use("/productos", productosRoutes);
 app.use("/login", loginRoutes);
 app.use("/users", userRoutes);
+app.use("/sendmail", emailRoutes); // Agrega las rutas
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
